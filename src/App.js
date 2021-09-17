@@ -8,9 +8,9 @@ function App() {
 
   useEffect(() => {
 
-    messageList.length === 0 ? console.log('пустошь') : 
+    messageList.length === 0 ? console.log('пока в массиве пусто') : 
     setTimeout(() => {
-      alert(`Я робот, а вы: ${messageList[messageList.length - 1].author} - молодец`);
+      alert(`Я робот, а вы: ${messageList[messageList.length - 1].author} - кожаный человек`);
     }, 1500);
 
   },[messageList]);
