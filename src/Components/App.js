@@ -1,40 +1,32 @@
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { ButtonGroup, Button } from '@material-ui/core';
+import Chats from "./Chats/Chats";
 import Message from "./Message/Message";
-import { useEffect, useState } from 'react';
-import Form from "./Form/Form";
-import ListMessage from "./ListMessage/ListMessage";
-import ListChat from "./ListChat/ListChat";
-import './style.css';
+import Profile from "./Profile/Profile";
+import './app.css';
 
 const message = 'Какая-то социальная сеть';
 
 function App() {
-  const [messageList, setMessageList] = useState([]);
-  const [chatList] = useState([{'id': 0, 'name': 'чатик 1'}, {'id': 1, 'name': 'чатик 2'}, {'id': 3, 'name': 'чатик 3'},]);
-
-  useEffect(() => {
-
-    if (messageList.length) {
-      setTimeout(() => {
-        console.log(`Я робот, а вы: ${messageList[messageList.length - 1].author} - кожаный человек`);
-      }, 1500);
-    }
-
-  },[messageList]);
 
   return (
     <>
-      <Message firstProp={message} />
+      <Router>
 
-      <div className="container">
-        <div className="chatList">
-          <ListChat chatList={chatList}/>
-        </div>
-        <div className="messageBlock">
-          <Form setMessageList={setMessageList}/>
-          <ListMessage messageList={messageList}/>
-        </div>
-      </div>
-      
+        <ButtonGroup variant="contained" aria-label="outlined primary button group">
+          <Button><Link to={'/'}>Домашняя страница </Link></Button>
+          <Button><Link to={'/profile'}>Ссылка на профиль </Link></Button>
+          <Button><Link to={'/chats'}>Ссылка на чатики </Link></Button>
+        </ButtonGroup>
+
+        <Switch>
+          <Route exact path="/" render={() => <Message firstProp={message} />} />
+          <Route exact path="/profile" component={Profile} />
+          <Route path="/chats" component={Chats} />
+          <Route render={() => <p>Неt такой страницы</p>} />
+        </Switch>
+
+      </Router>
     </>
   );
 }
