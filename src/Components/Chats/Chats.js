@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { List, ListItem, ListItemButton, ListItemText } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Form from '../Form/Form';
-import MessageList from '../messageList/messageList';
+import MessageList from '../MessageList/MessageList';
 import './chats.css';
 
 const Chats = () => {

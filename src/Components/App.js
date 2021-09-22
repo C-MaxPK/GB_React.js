@@ -12,7 +12,6 @@ function App() {
   return (
     <>
       <Router>
-
         <ButtonGroup variant="contained" aria-label="outlined primary button group">
           <Button><Link to={'/'}>Домашняя страница </Link></Button>
           <Button><Link to={'/profile'}>Ссылка на профиль </Link></Button>
@@ -25,7 +24,6 @@ function App() {
           <Route path="/chats" component={Chats} />
           <Route render={() => <p>Неt такой страницы</p>} />
         </Switch>
-
       </Router>
     </>
   );

@@ -8,6 +8,7 @@ const Form = ({ setMessageList }) => {
     const { chatId } = useParams();
     const [inputAuthor, setInputAuthor] = useState('');
     const [inputMessage, setInputMessage] = useState('');
+    
     const submitFormHandler = (e) => {
         e.preventDefault();
         setMessageList((prevState) => [...prevState, {'idM': prevState.length, 'idC': chatId, 'author': inputAuthor, 'message': inputMessage}]);
