@@ -1,0 +1,7 @@
+.chats {
+    margin-top: 30px;
+    display: flex;
+}
+.chatList {
+    width: 200px;
+}
