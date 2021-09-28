@@ -1,8 +1,8 @@
 import { ADD_MESSAGE_ITEM } from "./types/messageType";
 
 const initialState = {
-    id0: [{'id': 0, 'author': 'Автор Авторович', 'message': 'Есть кто живой?'},],
-    id1: [{'id': 0, 'author': 'Писатель Писателевич', 'message': 'Всем привет!'}, {'id': 1, 'author': 'Писарчук', 'message': 'Здароу'}],
+    id0: [{id: 0, author: 'Автор Авторович', message: 'Есть кто живой?'},],
+    id1: [{id: 0, author: 'Писатель Писателевич', message: 'Всем привет!'}, {id: 1, author: 'Писарчук', message: 'Здароу'}],
     id2: []
 };
 
