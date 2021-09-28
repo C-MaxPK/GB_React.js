@@ -1,30 +1,25 @@
-import { useEffect, useState } from 'react';
-import { List, ListItem, ListItemButton, ListItemText } from '@material-ui/core';
+import { useState } from 'react';
+import { Button, List, ListItem, ListItemButton, ListItemText, TextField } from '@material-ui/core';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Form from '../Form/Form';
-import MessageList from '../MessageList/MessageList';
+import { useDispatch, useSelector } from 'react-redux';
+import Chat from '../Chat/Chat';
+import { addChatItem, deleteChatItem } from '../../actions/chatsActions';
+import { addMessageItem } from '../../actions/messageAction';
 import './chats.css';
 
 const Chats = () => {
-    const initialMessages = [
-        {'idM': 0, 'idC': '1', 'author': 'Автор Авторович', 'message': 'Есть кто живой?'},
-        {'idM': 1, 'idC': '2', 'author': 'Писатель Писателевич', 'message': 'Всем привет!'},
-        {'idM': 2, 'idC': '2', 'author': 'Писарчук', 'message': 'Здароу'}
-    ];
-    const [messageList, setMessageList] = useState(initialMessages);
-    const [chatList] = useState([
-        {'id': 1, 'name': 'чатик 1'},
-        {'id': 2, 'name': 'чатик 2'},
-        {'id': 3, 'name': 'чатик 3'}
-    ]);
-    
-    useEffect(() => {
-        if (messageList.length) {
-            setTimeout(() => {
-                console.log(`Я робот, а вы: ${messageList[messageList.length - 1].author} - кожаный человек`);
-            }, 1500);
-        }
-    },[messageList]);
+    const [inputAddChat, setInputAddChat] = useState('');
+    const chatList = useSelector((state) => state.chatReducer);
+    const dispatch = useDispatch();
+
+    const addChatHandler = () => {
+        dispatch(addChatItem({id: `id${chatList.length}`, name: inputAddChat}));
+        dispatch(addMessageItem({chatId: `id${chatList.length}`, author: 'Бот', message: `Приветствую вас в чате "${inputAddChat}"`}));
+        setInputAddChat('');
+    };
+    const deleteChatHandler = (id) => {
+        dispatch(deleteChatItem(id));
+    };
 
     return (
         <div className="chats">
@@ -36,17 +31,17 @@ const Chats = () => {
                                 <ListItemButton>
                                     <Link to={`/chats/${obj.id}`}>
                                         <ListItemText primary={ obj.name } />
-                                    </Link >
+                                    </Link>
+                                    <Button variant="outlined" color="error" size="small" onClick={() => deleteChatHandler(obj.id)}>Удалить</Button>
                                 </ListItemButton>
                             </ListItem>
                         ))}
                     </List>
+                    <TextField id="outlined-basic" label="Название чатика" variant="outlined" size="small" value={inputAddChat} onChange={e => setInputAddChat(e.target.value)} />
+                    <Button variant="contained" color="success" size="small" onClick={addChatHandler}>Добавить</Button>
                 </div>
                 <div className="messageBlock">
-                    <Route path="/chats/:chatId">
-                        <Form setMessageList={setMessageList} />
-                        <MessageList messageList={messageList} />
-                    </Route>
+                    <Route path="/chats/:chatId" component={Chat} />
                 </div>
             </Router>
         </div>

@@ -1,5 +1,5 @@
-import { CHANGE_CHECK_MAILING } from "./types/checkMailingType";
 import { ADD_PROFILE_ITEM, DELETE_PROFILE_ITEM } from "./types/profileTypes";
+import { CHANGE_CHECK_MAILING } from "./types/checkMailingType";
 
 const initialState = {
     profileList: [{id: 0, name: 'Саша'}, {id: 1, name: 'Маша'}, {id: 2, name: 'Глаша'}],

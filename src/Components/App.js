@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { ButtonGroup, Button } from '@material-ui/core';
 import Chats from "./Chats/Chats";
-import Message from "./Message/Message";
+import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
 import './app.css';
 
@@ -19,10 +19,10 @@ function App() {
         </ButtonGroup>
 
         <Switch>
-          <Route exact path="/" render={() => <Message firstProp={message} />} />
+          <Route exact path="/" render={() => <Home firstProp={message} />} />
           <Route exact path="/profile" component={Profile} />
           <Route path="/chats" component={Chats} />
-          <Route render={() => <p>Неt такой страницы</p>} />
+          <Route render={() => <p>Not Found 404</p>} />
         </Switch>
       </Router>
     </>
