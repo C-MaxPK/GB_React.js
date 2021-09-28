@@ -1,0 +1,3 @@
+const ADD_MESSAGE_ITEM = 'ADD_MESSAGE_ITEM';
+
+export { ADD_MESSAGE_ITEM };
