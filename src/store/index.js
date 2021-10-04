@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage';
 import apiNewsReducer from './apiNewsReducer';
 import chatReducer from './chatReducer';
 import errorReducer from './errorReducer';
+import loaderSpinnerReducer from './loaderSpinnerReducer';
 import messageReducer from './messageReducer';
 import profileReducer from './profileReducer';
 
@@ -13,11 +14,12 @@ const rootReducer = combineReducers({
     apiNewsReducer,
     chatReducer,
     errorReducer,
+    loaderSpinnerReducer,
     messageReducer,
     profileReducer
 });
 
-const persistConfig = {key: 'root', storage: storage, blacklist: ['apiNewsReducer', 'errorReducer', 'profileReducer']};
+const persistConfig = {key: 'root', storage: storage, blacklist: ['apiNewsReducer', 'errorReducer', 'loaderSpinnerReducer', 'profileReducer']};
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk)));

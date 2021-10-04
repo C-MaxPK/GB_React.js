@@ -8,12 +8,12 @@ const ApiNews = () => {
     const dispatch = useDispatch();
     
     const getNewsHandler = (theme) => {
-        // dispatch(loaderOn(true)); не получилось, не фартануло
         dispatch(getApiNews(theme));
     };
     
     return (
         <div className="categoryNews">
+            <h2>Новостная лента</h2>
             <ButtonGroup size="small" aria-label="small button group">
                 {apiNews.theme.map(el => (
                     <Button onClick={() => getNewsHandler(el)} key={el}> { el } </Button>

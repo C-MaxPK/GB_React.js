@@ -1,9 +1,9 @@
 import { ADD_CHAT_ITEM, DELETE_CHAT_ITEM } from "./types/chatsTypes";
 
 const initialState = [
-    {'id': 'id0', 'name': 'чатик 1'},
-    {'id': 'id1', 'name': 'чатик 2'},
-    {'id': 'id2', 'name': 'чатик 3'}
+    {id: 'id0', name: 'чатик 1'},
+    {id: 'id1', name: 'чатик 2'},
+    {id: 'id2', name: 'чатик 3'}
 ];
 
 const chatReducer = (state = initialState, {type, payload}) => {

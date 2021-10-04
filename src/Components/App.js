@@ -4,9 +4,9 @@ import './app.css';
 function App() {
 
   return (
-    <>
+    <div>
       <RootRouter />
-    </>
+    </div>
   );
 }
 

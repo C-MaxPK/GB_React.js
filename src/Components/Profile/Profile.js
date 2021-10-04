@@ -13,9 +13,7 @@ const Profile = () => {
 
     return (
         <>
-            <h2>
-                Страница профиля
-            </h2>
+            <h2>Страница профиля</h2>
             <label>
                 Массовая подписка на рассылку спама
                 <Checkbox color="success" onChange={e => checkboxHandler(e)} />

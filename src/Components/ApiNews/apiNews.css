@@ -1,9 +1,15 @@
 .categoryNews {
     margin-top: 20px;
+    text-align: center;
 }
 .cardItem {
     margin-top: 20px;
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 10px;
+}
+h2 {
+    color: green;
+    font-size: 25px;
 }

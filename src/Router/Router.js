@@ -4,6 +4,7 @@ import ApiNews from "../Components/ApiNews/ApiNews";
 import Chats from "../Components/Chats/Chats";
 import Error from "../Components/Error/Error";
 import Home from "../Components/Home/Home";
+import LoaderSpinner from "../Components/LoaderSpinner/LoaderSpinner";
 import Profile from "../Components/Profile/Profile";
 
 const message = 'Какая-то социальная сеть';
@@ -28,6 +29,7 @@ const RootRouter = () => {
                     <Route render={() => <p>Not Found 404</p>} />
                 </Switch>
 
+                <LoaderSpinner />
                 <Error />
             </Router>
         </>

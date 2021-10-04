@@ -1,12 +1,12 @@
 import { PropTypes } from 'prop-types';
-import './style.css';
+import './home.css';
 
 const Home = ({ firstProp }) => {
     
     return (
-        <div className="firstStyle">
+        <h2 className="firstStyle">
             { firstProp }
-        </div>
+        </h2>
     )
 };
 

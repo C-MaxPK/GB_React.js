@@ -3,7 +3,7 @@ import { Button, TextField } from '@material-ui/core';
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addMessageItem, showAutoAnswer } from '../../actions/messageAction';
-import './style.css';
+import './form.css';
 
 const Form = () => {
     const [inputAuthor, setInputAuthor] = useState('');
