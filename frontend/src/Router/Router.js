@@ -35,7 +35,6 @@ const RootRouter = () => {
                 <Route exact path="/profile" component={Profile} />
                 <Route path="/chats" component={Chats} />
                 <Route exact path="/apinews" component={ApiNews} />
-                <Route render={() => <p>Not Found 404</p>} />
             </Switch>
 
             <LoaderSpinner />

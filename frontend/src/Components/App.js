@@ -12,6 +12,7 @@ function App() {
         <Switch>
             <Route exact path="/" component={Auth} />
             <SecureRoute path="/home" component={RootRouter} />
+            <Route render={() => <p>Not Found 404</p>} />
         </Switch>
     </Router>
   );

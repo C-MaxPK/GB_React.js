@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Card, CardContent, CardMedia, ButtonGroup, Button, Typography } from '@material-ui/core';
-import { getApiNews } from "../../actions/apiNewsAction";
+import { getApiNews } from "../../actions/apiNewsActions";
 import './apiNews.css';
 
 const ApiNews = () => {

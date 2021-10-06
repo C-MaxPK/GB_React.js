@@ -5,7 +5,7 @@ import './messageList.css';
 const MessageList = () => {
     const { chatId } = useParams();
     const messages = useSelector((state) => state.messageReducer[chatId]);
-    
+
     return (
         <div className="messageList">
             {messages.map((obj) => (

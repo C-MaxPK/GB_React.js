@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
     userReducer
 });
 
-const persistConfig = {key: 'root', storage: storage, blacklist: ['apiNewsReducer', 'errorReducer', 'loaderSpinnerReducer', 'profileReducer', 'userReducer']};
+const persistConfig = {key: 'root', storage: storage, blacklist: ['apiNewsReducer', 'chatReducer', 'errorReducer', 'loaderSpinnerReducer', 'messageReducer', 'profileReducer', 'userReducer']};
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk)));

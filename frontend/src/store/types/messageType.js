@@ -1,3 +1,3 @@
-const ADD_MESSAGE_ITEM = 'ADD_MESSAGE_ITEM';
+const SET_MESSAGES = 'SET_MESSAGES';
 
-export { ADD_MESSAGE_ITEM };
+export { SET_MESSAGES };

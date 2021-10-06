@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addMessageItem, showAutoAnswer } from '../../actions/messageAction';
+import { addMessageItem, showAutoAnswer } from '../../actions/messageActions';
 import './form.css';
 
 const Form = () => {
@@ -13,18 +13,20 @@ const Form = () => {
 
     const submitFormHandler = (e) => {
         e.preventDefault();
-        dispatch(addMessageItem({chatId: chatId, author: inputAuthor, message: inputMessage}));
-        setInputAuthor('');
-        setInputMessage('');
-        dispatch(showAutoAnswer(chatId));
+        if (inputAuthor && inputMessage) {
+            dispatch(addMessageItem({chatId: chatId, author: inputAuthor, message: inputMessage}));
+            setInputAuthor('');
+            setInputMessage('');
+            dispatch(showAutoAnswer(chatId));
+        }
     };
 
     return (
         <>
-            <form className="formAddMessage">
+            <form className="formAddMessage" onSubmit={e => submitFormHandler(e)}>
                 <TextField id="standard-basic" label="Имя" variant="standard" value={inputAuthor} onChange={e => setInputAuthor(e.target.value)} />
                 <TextField id="standard-basic" label="Сообщение" variant="standard" value={inputMessage} onChange={e => setInputMessage(e.target.value)} />
-                <Button variant="contained" onClick={e => submitFormHandler(e)}>Отправить</Button>
+                <Button variant="contained" type="submit">Отправить</Button>
             </form>
         </>
     )

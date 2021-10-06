@@ -24,7 +24,6 @@ export const fetchUser = (user) => async (dispatch) => {
     });
 
     const data = await response.json();
-    console.log(data, 'data response');
 
     if (data) {
         dispatch(userLogin(user));
