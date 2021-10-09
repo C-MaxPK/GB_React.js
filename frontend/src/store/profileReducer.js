@@ -4,10 +4,10 @@ const initialState = {
     checkMailing: false
 };
 
-const profileReducer = (state = initialState, {type, payload}) => {
+const profileReducer = (state = initialState, {type}) => {
     switch (type) {
         case CHANGE_CHECK_MAILING:
-            return {...state, checkMailing: payload};
+            return {...state, checkMailing: !state.checkMailing};
         default:
             return state;
     }

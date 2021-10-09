@@ -6,17 +6,13 @@ import './profile.css';
 const Profile = () => {
     const dispatch = useDispatch();
     const mailing = useSelector((state) => state.profileReducer.checkMailing);
-    
-        const checkboxHandler = (e) => {
-        dispatch(changeCheckMailing(e.target.checked));
-    };
 
     return (
         <>
             <h2>Страница профиля</h2>
             <label>
                 Массовая подписка на рассылку спама
-                <Checkbox color="success" onChange={e => checkboxHandler(e)} />
+                <Checkbox color="success" onChange={() => dispatch(changeCheckMailing())} />
             </label>
             {mailing ? <p className="mailingOn">Подписка включена</p> : <p className="mailingOff">Подписка выключена</p>}
         </>
